@@ -30,11 +30,28 @@ public class App {
 
             if (opcion == 1) {
 
-                System.out.println("Opción para listar prendas.");
+                System.out.println("\nPrendas registradas:");
+
+                for (int i = 0; i < lote.length; i++) {
+
+                    if (lote[i] != null) {
+                        System.out.println((i + 1) + ". " + lote[i]);
+                    }
+
+                }
 
             } else if (opcion == 2) {
 
-                System.out.println("Opción para buscar prendas.");
+                System.out.print("Ingrese el nombre de la prenda: ");
+                String nombreBuscado = teclado.nextLine();
+
+                boolean encontrado = nombreFuncion(lote, nombreBuscado);
+
+                if (encontrado) {
+                    System.out.println("La prenda sí existe.");
+                } else {
+                    System.out.println("La prenda no existe.");
+                }
 
             } else if (opcion == 3) {
 
@@ -53,6 +70,23 @@ public class App {
         } while (opcion != 4);
 
         teclado.close();
+
+    }
+
+    public static boolean nombreFuncion(String[] lote, String nombreBuscado) {
+
+        for (int i = 0; i < lote.length; i++) {
+
+            if (lote[i] != null &&
+                lote[i].equalsIgnoreCase(nombreBuscado)) {
+
+                return true;
+
+            }
+
+        }
+
+        return false;
 
     }
 
