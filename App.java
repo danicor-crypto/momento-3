@@ -55,7 +55,28 @@ public class App {
 
             } else if (opcion == 3) {
 
-                System.out.println("Opción para ingresar prendas.");
+                System.out.print("Ingrese el nombre de la nueva prenda: ");
+                String nuevaPrenda = teclado.nextLine();
+
+                boolean guardada = false;
+
+                for (int i = 0; i < lote.length; i++) {
+
+                    if (lote[i] == null) {
+
+                        lote[i] = nuevaPrenda;
+                        guardada = true;
+
+                        System.out.println("Prenda ingresada correctamente.");
+                        break;
+
+                    }
+
+                }
+
+                if (guardada == false) {
+                    System.out.println("No hay espacios disponibles.");
+                }
 
             } else if (opcion == 4) {
 
